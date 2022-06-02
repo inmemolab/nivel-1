@@ -14,6 +14,8 @@ function solution(A: any) {
   // console.log("Min: ", min);
   // array para los que faltan
   const missing = [];
+  // obtenemos el minimo
+  let minNum = 0;
   // primer condicional
   if (min >= -1000000 && max <= 1000000) {
     // si el max es menor que sero devuelve 1
@@ -28,6 +30,8 @@ function solution(A: any) {
         if (!A.includes(i) && i >= 1 && max <= 1000000) {
           // push a los que faltan
           missing.push(i);
+          //console.log("array nums: ", missing);
+          minNum = Math.min(...missing);
         }
       }
     }
@@ -35,10 +39,10 @@ function solution(A: any) {
     console.log("No cumple con el rango");
   }
   // consola
-  console.log(missing);
+  console.log(minNum);
 }
 
 app.listen(3000, () => {
-  const array = [-3, 1, 6, 4, 1, 2];
+  const array = [-3, 1, 6, 4, 1, 2, 10, 3, 5];
   solution(array);
 });
